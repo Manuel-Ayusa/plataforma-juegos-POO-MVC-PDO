@@ -1,6 +1,6 @@
 <?php
-    require_once('BaseDeDatos.php');
-    require_once('Session.php');
+    require_once('sistema/BaseDeDatos.php');
+    require_once('traits/Session.php');
 
     class Usuario {
 

@@ -1,5 +1,5 @@
 <?php
-    require_once('modelos/BaseDeDatos.php');
+    require_once('sistema/BaseDeDatos.php');
 
     if (!isset($_GET['c'])) {
         require_once('controladores/InicioControlador.php');
