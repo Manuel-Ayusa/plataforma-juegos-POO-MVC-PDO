@@ -1,5 +1,4 @@
 <?php
-    require_once('sistema/BaseDeDatos.php');
     require_once('traits/Session.php');
 
     class Usuario {
