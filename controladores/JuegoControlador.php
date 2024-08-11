@@ -225,39 +225,6 @@
             }
         }
 
-        public function reservarJuego()
-        {
-            if (!empty($_SESSION['usuario'])) {
-
-                if (!empty($_GET['id'])) {
-                    $this->modelo->agregarACarrito($_GET['id']);
-                    header('refresh:3;url=?c=Juego&a=mostrarJuegos');
-                    $colorFondo = 'bg-success';
-                    $respuesta = '¡Se agrego un producto al carrito!'; 
-                    require_once('vistas/juego/alertas.php');
-                }
-               
-           }else {
-               header('refresh:0;url=?c=Inicio&a=inicio');
-           }
-        }
-
-        public function mostrarCarrito()
-        {
-            if (!empty($_SESSION['usuario'])) {
-                if (!empty($_SESSION['carrito'])) {
-                    require_once('vistas/juego/carrito/mostrar_carrito.php');    
-                } else {
-                    $colorFondo = 'bg-primary';
-                    $respuesta = '¡Su carrito esta vacio!'; 
-                    require_once('vistas/juego/alertas.php');
-                }
-                
-            } else {
-                header('refresh:0;url=?c=Inicio&a=inicio');
-            }
-        }
-
         public function preferencias()
         {
             if (!empty($_SESSION['usuario'])) {

@@ -5,7 +5,7 @@
             <?php require('vistas/menu.php'); ?>
         </section>
         <article class="col-9 listado pt-2">
-                <section class="col-10 m-0 p-0 pt-2"><p class="btn btn-primary float-end"><a href="?c=Juego&a=mostrarCarrito" class="bi bi-cart text-white nav-link"> Mi carrito</a></p></section>
+                <section class="col-10 m-0 p-0 pt-2"><p class="btn btn-primary float-end"><a href="?c=Carrito&a=mostrarCarrito" class="bi bi-cart text-white nav-link"> Mi carrito</a></p></section>
                 <?php
                     foreach ($this->modelo->mostrarJuegos() as $resultado) {
                         if ($resultado->portada == '') {
@@ -22,7 +22,7 @@
                                 <p class="">Fecha de lanzamiento: <?php echo $resultado->lanzamiento;?></p>
                                 <section>
                                     <p class="btn btn-primary"><?php echo $resultado->genero;?></p>
-                                    <a href="?c=Juego&a=reservarJuego&id=<?php echo $resultado->id_juego;?>" class="bi bi-cart text-white btn btn-success mb-3"></a>
+                                    <a href="?c=Carrito&a=añadirAlCarrito&id=<?php echo $resultado->id_juego;?>" class="bi bi-cart text-white btn btn-success mb-3"></a>
                                 </section>
                             </section>
                             <?php

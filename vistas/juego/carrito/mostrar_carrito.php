@@ -9,19 +9,17 @@
             <table class="table table-bordered table-hover table-striped table-info mt-5 align-middle"style="margin: 0 auto">
                 <tr><th>Titulo</th><th>Portada</th><th>Genero</th><th>Jugadores</th><th>Cantidad</th>
                 <?php 
-                    foreach ($_SESSION['carrito'] as $id => $cant) {
-                        $sentencia = $this->modelo->mostrarCarrito($id);
-                        if ($resul = $sentencia->fetch(PDO::FETCH_OBJ)) {
-                            if ($resul->portada == '') {
-                                $resul->portada = 'portada_default.png';
-                            }
+                    foreach ($this->modelo->productos() as $juego) {
+                        if ($juego->portada == '') {
+                            $juego->portada = 'portada_default.png';
+                        }
                 ?>
-                <tr><td class="col1"><?php echo $resul->titulo;?></td>
-                <td><img class="" src="publico/img/portadas/<?php echo $resul->portada;?>"></td>
-                <td class="col1"><?php echo $resul->genero;?></td>
-                <td class="col1"><?php echo $resul->jugadores;?></td>
-                <td class="col1"><?php echo $cant;?></td>
-                <?php }}?>
+                <tr><td class="col1"><?php echo $juego->titulo;?></td>
+                <td><img class="" src="publico/img/portadas/<?php echo $juego->portada;?>"></td>
+                <td class="col1"><?php echo $juego->genero;?></td>
+                <td class="col1"><?php echo $juego->jugadores;?></td>
+                <td class="col1"><?php echo $cantidad;?></td>
+                <?php }?>
             </table>
         </article>
     </section>

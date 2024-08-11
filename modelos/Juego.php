@@ -122,19 +122,6 @@
             return $confirmacion;
         }
 
-        public function agregarACarrito(int $id)
-        {
-            if (empty($_SESSION['carrito'])) {
-                $_SESSION['carrito'] = array();
-            }
-            if (empty($_SESSION['carrito'][$id])) {
-                $_SESSION['carrito'][$id] = 1;
-            }
-            else {
-                $_SESSION['carrito'][$id]++;
-            }
-        }        
-
         public function obtenerGeneros()
         {
             $consulta = 'SELECT DISTINCT(genero) FROM juego ORDER BY genero';
@@ -170,16 +157,6 @@
             }
 
             return $resul;
-        }
-
-        public function mostrarCarrito(int $id)
-        {
-            $consulta = 'SELECT * FROM juego WHERE id_juego = ?';
-            $sentencia = $this->conexion->prepare($consulta);
-            $sentencia->bindParam(1, $id);
-            $sentencia->execute();
-
-            return $sentencia;
         }
     }
 ?>
