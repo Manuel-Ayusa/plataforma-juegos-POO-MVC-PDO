@@ -2,8 +2,8 @@
 Importar bases de datos a donde sea necesario.(La contraseña es el nombre de usuario. Por ejemplo: Usuario: admin, Contraseña: admin).<br>
 Este proyecto es una derivacion de un proyecto realizado para una materia de la Universidad. <br> 
 Para el back-end se utilizo PHP Orientado a Objetos y MySQL(MariaDB). El front-end esta realizado con HTML5 y sus etiquetas semanticas, CSS3 y Bootstrap. <br>
-Es un sitio web el cual contiene un sistema de roles que muestra distinta informacion y funcionalidades dependiendo del tipo de usuaurio logueado. Algunas de estas funciones son: Alta de usuario(para el registro de usuarios), Mostrar lista de usuarios(muestra la informacion del usuario. <br>
-A su vez el sitio cuenta con distintas opciones como ser: actualizar la informacion del usuario, desactivar al usuario y borrar al usuario de la BD), alta de Juegos(para añadir un juego a la BD), mostrar Juegos(muestra todos los juegos guardados y al igual que con la lista de usuarios cuenta con varias opciones como por ejemplo: agregar al carrito), mostrar carrito(muestra los productos añadidos al carrito).<br>
+Es un sitio web el cual contiene un sistema de roles que muestra distinta informacion y funcionalidades dependiendo del tipo de usuaurio logueado. Algunas de estas funciones son: Alta de usuario(para el registro de usuarios) y mostrar lista de usuarios. <br>
+A su vez el sitio cuenta con distintas opciones como ser: actualizar la informacion del usuario, desactivar al usuario y borrar al usuario de la BD; alta de Juegos(para añadir un juego a la BD), mostrar Juegos(cuenta con varias opciones como por ejemplo: agregar al carrito), mostrar carrito.<br>
 <h2>Imagenes del Sitio</h2>
 <h3>Vista Inicio de Sesion</h3>
 
