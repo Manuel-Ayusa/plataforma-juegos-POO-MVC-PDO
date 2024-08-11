@@ -19,7 +19,9 @@
 
         public function recuperarDatos(int $id)
         {
-            $consulta = 'SELECT * FROM juego WHERE id_juego = ?';
+            $consulta = 'SELECT * FROM juego
+                        INNER JOIN genero ON juego.genero_id = genero.id_genero
+                        WHERE id_juego = ?';
             $sentencia = $this->conexion->prepare($consulta);
             $sentencia->bindParam(1, $id);
             $sentencia->execute();
@@ -30,7 +32,8 @@
 
         public function mostrarJuegos()
         {
-            $consulta = 'SELECT * FROM juego';
+            $consulta = 'SELECT * FROM juego
+                        INNER JOIN genero ON juego.genero_id = genero.id_genero';
             $sentencia = $this->conexion->prepare($consulta);
             $sentencia->execute();
             $resul = $sentencia->fetchAll(PDO::FETCH_OBJ);
@@ -43,12 +46,12 @@
             return $resul;
         }
 
-        public function guardarJuegoEnBD(string $titulo, int $jugadores, string $lanzamiento, string $genero, $portada):bool
+        public function guardarJuegoEnBD(string $titulo, int $jugadores, string $lanzamiento, int $genero, $portada):bool
         {
             $nombrePortada = $this->moverPortadaJuego($titulo, $portada);
             
             $confrimacion = false;
-            $consulta = 'INSERT INTO juego(titulo, jugadores, lanzamiento, genero, portada) VALUE (?, ?, ?, ?, ?)';
+            $consulta = 'INSERT INTO juego(titulo, jugadores, lanzamiento, genero_id, portada) VALUE (?, ?, ?, ?, ?)';
             $sentencia = $this->conexion->prepare($consulta);
             $sentencia->bindParam(1 , $titulo);
             $sentencia->bindParam(2 , $jugadores);
@@ -79,7 +82,7 @@
             return $nuevoNombre;
         }
 
-        public function modificarJuego(string $titulo, int  $jugadores, string $lanzamiento, string $genero, $portada, int $id, string $nombreFotoAnt):bool
+        public function modificarJuego(string $titulo, int  $jugadores, string $lanzamiento, int $genero, $portada, int $id, string $nombreFotoAnt):bool
         {
             unlink('publico/img/portadas/' . $nombreFotoAnt);
 
@@ -87,7 +90,7 @@
 
             $confirmacion = false;
 
-            $consulta = 'UPDATE juego SET titulo = ?, jugadores = ?, lanzamiento = ?, genero = ?, portada = ? WHERE id_juego = ?';
+            $consulta = 'UPDATE juego SET titulo = ?, jugadores = ?, lanzamiento = ?, genero_id = ?, portada = ? WHERE id_juego = ?';
             $sentencia = $this->conexion->prepare($consulta);
             $sentencia->bindParam(1 , $titulo);
             $sentencia->bindParam(2 , $jugadores);
@@ -124,7 +127,7 @@
 
         public function obtenerGeneros()
         {
-            $consulta = 'SELECT DISTINCT(genero) FROM juego ORDER BY genero';
+            $consulta = 'SELECT DISTINCT(genero) FROM genero ORDER BY genero';
             $sentencia = $this->conexion->prepare($consulta);
             $sentencia->execute();
             $resul = $sentencia->fetchAll(PDO::FETCH_OBJ);
@@ -145,7 +148,9 @@
         
         public function mostrarJuegosFav(string $usuario)
         {
-            $consulta = 'SELECT * FROM juego WHERE genero = ?';
+            $consulta = 'SELECT * FROM juego 
+                        INNER JOIN genero ON juego.genero_id = genero.id_genero    
+                            WHERE genero = ?';
             $sentencia = $this->conexion->prepare($consulta);
             $sentencia->bindParam(1, $_COOKIE[$usuario]);
             $sentencia->execute();

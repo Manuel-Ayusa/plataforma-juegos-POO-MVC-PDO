@@ -9,7 +9,7 @@
             <table class="table table-bordered table-hover table-striped table-info mt-5 align-middle"style="margin: 0 auto">
                 <tr><th>Titulo</th><th>Portada</th><th>Genero</th><th>Jugadores</th><th>Cantidad</th>
                 <?php 
-                    foreach ($this->modelo->productos() as $juego) {
+                    foreach ($juegos as $juego) {
                         if ($juego->portada == '') {
                             $juego->portada = 'portada_default.png';
                         }
@@ -18,7 +18,7 @@
                 <td><img class="" src="publico/img/portadas/<?php echo $juego->portada;?>"></td>
                 <td class="col1"><?php echo $juego->genero;?></td>
                 <td class="col1"><?php echo $juego->jugadores;?></td>
-                <td class="col1"><?php echo $cantidad;?></td>
+                <td class="col1"><?php echo $juego->cantidad;?></td>
                 <?php }?>
             </table>
         </article>

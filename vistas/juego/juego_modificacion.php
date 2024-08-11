@@ -24,12 +24,11 @@
                 <section class="pt-2">
                     <label for="gen" class="form-label" class="form-label">Genero</label>
                     <select name="genero" id="gen" class="form-control">
-                        <option value="<?php echo $resultados->genero ?>" selected><?php echo $resultados->genero ?></option>
-                        <option value="Accion">Estrategia</option>
-                        <option value="Aventura">Rol</option>
-                        <option value="Terror">Survival</option>
-                        <option value="Deporte">Deporte</option>
-                        <option value="Guerra">Guerra</option>
+                        <option value="<?php echo $resultados->genero_id ?>" selected><?php echo $resultados->genero ?></option>
+                        <option value="1">Rol</option>
+                        <option value="2">Survival</option>
+                        <option value="3">Estrategia</option>
+                        <option value="4">Deporte</option>
                     </select>
                 </section>
                 <section class="pt-2">

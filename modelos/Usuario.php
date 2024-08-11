@@ -102,7 +102,7 @@
             return $nombreFoto;
         }
 
-        public function registrarUsuario(string $usuario, string $contraseña, string $tipo, $foto):bool // metodo para registrar un usuario en la BD. Sera usado en usuario_alta.php
+        public function registrarUsuario(string $usuario, string $contraseña, string $tipo, $foto):bool // metodo para registrar un usuario en la BD
         {
             $nombreFoto = $this->moverFoto($usuario, $foto); // mueve la foto y le asigna el nombre para ser guardada en la BD
 

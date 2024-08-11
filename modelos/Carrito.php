@@ -3,7 +3,6 @@
 class Carrito {
 
     private $conexion;
-    private $id_usuario = 1;
 
     public function __construct()
     {
@@ -14,7 +13,7 @@ class Carrito {
     {
         $consulta = 'INSERT INTO carrito(usuario_id) VALUE (?)';
         $sentencia = $this->conexion->prepare($consulta);
-        $sentencia->bindParam(1, $this->id_usuario); //luego cambiar $id_usuario por $session['id_usuario']
+        $sentencia->bindParam(1, $_SESSION['id_usuario']); 
         $sentencia->execute();
     }
 
@@ -22,7 +21,7 @@ class Carrito {
     {
         $consulta = 'SELECT id_carrito FROM carrito WHERE usuario_id = ?';
         $sentencia = $this->conexion->prepare($consulta);
-        $sentencia->bindParam(1, $this->id_usuario);
+        $sentencia->bindParam(1, $_SESSION['id_usuario']);
         $sentencia->bindColumn(1, $id_carrito);
         $sentencia->execute();
         $sentencia->fetch(); 
@@ -31,7 +30,7 @@ class Carrito {
             Carrito::crearCarrito();
             $consulta = 'SELECT id_carrito FROM carrito WHERE usuario_id = ?';
             $sentencia = $this->conexion->prepare($consulta);
-            $sentencia->bindParam(1, $this->id_usuario);  //luego cambiar $id_usuario por $session['id_usuario']
+            $sentencia->bindParam(1, $_SESSION['id_usuario']);  
             $sentencia->bindColumn(1, $id_carrito);
             $sentencia->execute();
             $sentencia->fetch(); 
@@ -41,7 +40,7 @@ class Carrito {
                         WHERE juego_id = ? AND carrito.usuario_id = ?';
             $sentencia = $this->conexion->prepare($consulta);
             $sentencia->bindParam(1, $id_juego);
-            $sentencia->bindParam(2, $this->id_usuario);
+            $sentencia->bindParam(2, $_SESSION['id_usuario']);
             $sentencia->bindColumn(1, $cantidad);
             $sentencia->bindColumn(2, $id_carrito);
             $sentencia->execute();
@@ -58,7 +57,7 @@ class Carrito {
             $sentencia = $this->conexion->prepare($consulta2);
             $sentencia->bindParam(1, $cantidad); 
             $sentencia->bindParam(2, $id_juego);
-            $sentencia->bindParam(3, $id_carrito); //luego cambiar $id_usuario por $session['id_usuario']
+            $sentencia->bindParam(3, $id_carrito); 
         } else {
             $cantidad = 1;
             $sentencia = $this->conexion->prepare($consulta);
@@ -72,12 +71,13 @@ class Carrito {
 
     public function productos()
     {
-        $consulta = 'SELECT titulo, jugadores, lanzamiento, portada_path, cantidad FROM juego 
+        $consulta = 'SELECT titulo, jugadores, lanzamiento, portada, genero, cantidad FROM juego 
                     INNER JOIN carrito_producto ON juego.id_juego = carrito_producto.juego_id 
                     INNER JOIN carrito ON carrito.id_carrito = carrito_producto.carrito_id
+                    INNER JOIN genero ON juego.genero_id = genero.id_genero
                     WHERE carrito.usuario_id = ?';
         $sentencia = $this->conexion->prepare($consulta);
-        $sentencia->bindParam(1, $this->id_usuario);   //luego cambiar $id_usuario por $session['id_usuario']
+        $sentencia->bindParam(1, $_SESSION['id_usuario']);  
         $sentencia->execute();
         $resultado = $sentencia->fetchAll(PDO::FETCH_OBJ);
 

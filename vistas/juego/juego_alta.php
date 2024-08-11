@@ -24,11 +24,10 @@
                 <section class="pt-2">
                     <label for="gen" class="form-label" class="form-label">Genero</label>
                     <select name="genero" id="gen" class="form-control">
-                        <option value="Accion">Accion</option>
-                        <option value="Aventura">Aventura</option>
-                        <option value="Terror">Terror</option>
-                        <option value="Deporte">Deporte</option>
-                        <option value="Guerra">Guerra</option>
+                        <option value="1">Rol</option>
+                        <option value="2">Survival</option>
+                        <option value="3">Estrategia</option>
+                        <option value="4">Deporte</option>
                     </select>
                 </section>
                 <section class="pt-2">

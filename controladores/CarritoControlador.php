@@ -1,7 +1,8 @@
 <?php 
+    session_start();
     require_once('modelos/Carrito.php');
 
-    class CarritoController {
+    class CarritoControlador {
         
         private $modelo;
 
@@ -30,7 +31,7 @@
         public function mostrarCarrito()
         {
             if (!empty($_SESSION['usuario'])) {
-                //$juegos = $this->modelo->productos();
+                $juegos = $this->modelo->productos();
 
                 if (!empty($juegos)) {
                     require_once('vistas/juego/carrito/mostrar_carrito.php');    

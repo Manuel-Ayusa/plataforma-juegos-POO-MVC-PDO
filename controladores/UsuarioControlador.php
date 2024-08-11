@@ -100,6 +100,7 @@
                 if ($_SESSION['tipo'] == "Administrador") {
 
                     if (!empty($_POST['usuario']) && !empty($_POST['pass']) && !empty($_POST['tipo'])){
+                        
                         $registro = $this->modelo->registrarUsuario($_POST['usuario'], ($_POST['pass']), $_POST['tipo'], $_FILES);
             
                         if ($registro == true) {
