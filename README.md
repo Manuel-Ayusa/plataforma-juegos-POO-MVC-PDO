@@ -7,7 +7,7 @@ Es un sitio web el cual contiene un sistema de roles que muestra distinta inform
 A su vez el sitio cuenta con distintas opciones como ser: actualizar la informacion del usuario, desactivar al usuario y borrar al usuario de la BD; alta de Juegos(para añadir un juego a la BD), mostrar Juegos(cuenta con varias opciones como por ejemplo: agregar al carrito) y mostrar carrito, entre otras funcionalidades.<br>
 
 <h2>Información tecnica</h2>
-Para el desarrollo del proyecto se utilizo el patron de diseño MVC. 
+Para el desarrollo del proyecto se utilizo el patron de diseño MVC. <br>
 Para el back-end se utilizo PHP Orientado a Objetos y MySQL(MariaDB). El front-end esta realizado con HTML5 y sus etiquetas semanticas, CSS3 y Bootstrap. <br>
 Para el almacenamiento y manejo de datos se utliza una base de datos relacional. <br>
 
