@@ -8,7 +8,7 @@ A su vez el sitio cuenta con distintas opciones como ser: actualizar la informac
 
 <h2>Información tecnica</h2>
 Para el desarrollo del proyecto se utilizo el patron de diseño MVC. <br>
-Para el back-end se utilizo PHP Orientado a Objetos y MySQL(MariaDB). El front-end esta realizado con HTML5 y sus etiquetas semanticas, CSS3 y Bootstrap. <br>
+Para el back-end se utilizo PHP Orientado a Objetos y MySQL(MariaDB). El front-end esta realizado con HTML5 y sus etiquetas semanticas junto a CSS3 y Bootstrap. <br>
 Para el almacenamiento y manejo de datos se utliza una base de datos relacional. <br>
 
 <h2>Imagenes del Sitio</h2>
